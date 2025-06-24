@@ -12,29 +12,30 @@ body {
 }
 
 #landing {
-  margin-top: 150px;
+  margin-top: 100px;
 }
 
 #landing h1 {
-  font-size: 4rem;
+  font-size: 3rem;
   margin-bottom: 10px;
 }
 
 #landing p {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: #333;
   margin-bottom: 20px;
 }
 
 #startGameBtn, #restart {
-  padding: 20px 20px;
-  font-size: 1.4rem;
+  padding: 15px 25px;
+  font-size: 1.2rem;
   background-color: #018E42;
   color: whitesmoke;
   border: none;
-  border-radius: 15px;
+  border-radius: 12px;
   cursor: pointer;
   margin-top: 20px;
+  transition: background-color 0.3s ease;
 }
 
 #restart {
@@ -42,30 +43,40 @@ body {
   font-weight: bold;
 }
 
+#startGameBtn:hover {
+  background-color: #026d33;
+}
+
+#restart:hover {
+  background-color: #d14436;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
-  max-width: 500px;
+  align-items: center;
+  max-width: 380px;
   margin: 0 auto 20px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 500;
 }
 
 #gameContainer {
   margin-top: 20px;
 }
+
 .game-board {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-  gap: 10px;
-  max-width: 500px;
+  grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+  gap: 8px;
+  max-width: 380px;
   margin: 0 auto;
 }
 
 .card {
   position: relative;
   width: 100%;
-  padding-top: 100%;
+  padding-top: 80%; /* Makes card square */
   perspective: 1000px;
 }
 
@@ -78,13 +89,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid #000000;
-  border-radius: 10px;
+  border: 2px solid #000;
+  border-radius: 8px;
   backface-visibility: hidden;
-  transition: transform 0.4s;
+  transition: transform 0.4s ease;
   background-color: #f4c430;
   cursor: pointer;
-  font-size: 1.8rem;
+  font-size: 1rem;
 }
 
 .card .back {
@@ -93,8 +104,8 @@ body {
 }
 
 .card img {
-  max-width: 60%;
-  max-height: 60%;
+  max-width: 50%;
+  max-height: 50%;
   object-fit: contain;
 }
 
@@ -111,10 +122,29 @@ body {
   background-color: #d4ffd4;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
+  #landing h1 {
+    font-size: 2.2rem;
+  }
+
+  #landing p {
+    font-size: 1rem;
+  }
+
   .header {
     flex-direction: column;
-    align-items: center;
+    font-size: 0.9rem;
     gap: 10px;
+  }
+
+  #startGameBtn, #restart {
+    font-size: 1rem;
+    padding: 12px 20px;
+  }
+
+  .game-board {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    max-width: 320px;
   }
 }
